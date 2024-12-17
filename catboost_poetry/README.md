@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project leverages the CatBoost machine learning algorithm for credit risk assessment. It's implemented using [Qwak's Machine Learning Platform](https://www.qwak.com/) and the CatBoost library.
+This project leverages the CatBoost machine learning algorithm for credit risk assessment. It's implemented using [JFrog ML](https://docs.qwak.com/docs/introduction) and the CatBoost library.
 
 ### Features
 
@@ -10,11 +10,11 @@ This project leverages the CatBoost machine learning algorithm for credit risk a
   
 - **Model Initialization**: Initializes the CatBoost model with user-defined or default hyperparameters. The model is trained on a credit risk dataset and fine-tuned for optimal performance.
 
-- **Credit Risk Prediction via Qwak's Predict API**: Utilizes Qwak's Predict API for assessing the probability of default based on various features like age, sex, job, housing, etc.
+- **Credit Risk Prediction via JFrog ML's Predict API**: Utilizes JFrog's Predict API for assessing the probability of default based on various features like age, sex, job, housing, etc.
 
 ### Functionality
 
-The primary functionality is to predict the probability of default for credit applications. The code is designed for seamless integration with Qwak's platform and serves as a practical example for credit risk assessment tasks.
+The primary functionality is to predict the probability of default for credit applications. The code is designed for seamless integration with JFrog ML and serves as a practical example for credit risk assessment tasks.
 
 
 <br>
@@ -30,7 +30,7 @@ The primary functionality is to predict the probability of default for credit ap
     poetry -C main install
     ```
 
-3. **Install and Configure the Qwak SDK**: Use your account [Qwak API Key](https://docs.qwak.com/docs/getting-started#configuring-qwak-sdk) to set up your SDK locally.
+3. **Install and Configure the JFrog Ml SDK**: Use your account [JFrog ML API Key](https://docs.qwak.com/docs/getting-started#configuring-qwak-sdk) to set up your SDK locally.
 
     ```bash
     pip install qwak-sdk
@@ -47,9 +47,9 @@ The primary functionality is to predict the probability of default for credit ap
 
 <br>
 
-## How to Run Remotely on Qwak
+## How to Run Remotely on JFrog ML
 
-1. **Build on the Qwak Platform**:
+1. **Build on the JFrog ML**:
 
     Create a new model on Qwak using the command:
 
@@ -65,7 +65,7 @@ The primary functionality is to predict the probability of default for credit ap
     ```
 
 
-2. **Deploy the Model on the Qwak Platform with a Real-Time Endpoint**:
+2. **Deploy the Model on the JFrog ML with a Real-Time Endpoint**:
 
     To deploy your model via the CLI, use the following command:
 
@@ -81,7 +81,7 @@ The primary functionality is to predict the probability of default for credit ap
     pip install qwak-inference
     ```
 
-    Call the Real-Time endpoint using your Model ID from the Qwak platform:
+    Call the Real-Time endpoint using your Model ID from the JFrog ML:
 
     ```bash
     python test_live_mode.py <your-qwak-model-id>
@@ -108,9 +108,3 @@ The primary functionality is to predict the probability of default for credit ap
 
 <br>
 <br>
-
-## Try Qwak's MLOps Platform for Free
-
-Are you looking to deploy your machine learning models in a production-ready environment within minutes? [Qwak](https://www.qwak.com/) offers a seamless platform to build, train, and deploy your models with ease.
-
-Whether you're a data scientist, ML engineer, or developer, Qwak provides the tools and support to take your models from development to deployment effortlessly. Explore the platform and start deploying your models today. [Try Qwak for free!](https://www.qwak.com/)

@@ -1,8 +1,8 @@
-# XGBoost Churn Prediction Model with Qwak
+# XGBoost Churn Prediction Model with JFrog ML
 
 ## Overview
 
-This project employs the XGBoost algorithm for customer churn prediction. It's implemented using the [Qwak's Machine Learning Platform](https://www.qwak.com/) and the XGBoost library.
+This project employs the XGBoost algorithm for customer churn prediction. It's implemented using the [JFrog ML](https://docs.qwak.com/docs/introduction) and the XGBoost library.
 
 ### Features
 
@@ -10,18 +10,15 @@ This project employs the XGBoost algorithm for customer churn prediction. It's i
 
 - **Model Initialization**: Initializes the XGBoost model with user-defined or default hyperparameters. The model is trained on a customer churn dataset and fine-tuned for optimal performance.
 
-- **Churn Prediction via Qwak's Predict API**: Utilizes Qwak's Predict API for assessing the probability of customer churn based on various features like account length, area code, international plan, etc.
+- **Churn Prediction via JFrogm ML's Predict API**: Utilizes JFrog ML's Predict API for assessing the probability of customer churn based on various features like account length, area code, international plan, etc.
 
 ### Functionality
 
-The primary functionality is to predict the probability of customer churn. The code is designed for seamless integration with Qwak's platform and serves as a practical example for churn prediction tasks.
-
-
+The primary functionality is to predict the probability of customer churn. The code is designed for seamless integration with JFrog ML and serves as a practical example for churn prediction tasks.
 
 <br>
 
 ## How to Test Locally
-
 
 1. **Clone the Repository**: Clone this GitHub repository to your local machine.
 
@@ -32,7 +29,7 @@ The primary functionality is to predict the probability of customer churn. The c
     conda activate churn_model
     ```
 
-3. **Install and Configure the Qwak SDK**: Use your account [Qwak API Key](https://docs.qwak.com/docs/getting-started#configuring-qwak-sdk) to set up your SDK locally.
+3. **Install and Configure the JFrog ML SDK**: Use your account [JFrog ML API Key](https://docs.qwak.com/docs/getting-started#configuring-qwak-sdk) to set up your SDK locally.
 
     ```bash
     pip install qwak-sdk
@@ -49,16 +46,15 @@ The primary functionality is to predict the probability of customer churn. The c
 
 <br>
 
-## How to Run Remotely on Qwak
+## How to Run Remotely on JFrog ML
 
-1. **Build on the Qwak Platform**:
+1. **Build on JFrog ML**:
 
-    Create a new model on Qwak using the command:
+    Create a new model on JFrog ML using the command:
 
     ```bash
     qwak models create "Churn Prediction Model" --project "Sample Project"
     ```
-
 
     Initiate a model build with:
 
@@ -66,8 +62,7 @@ The primary functionality is to predict the probability of customer churn. The c
     qwak models build --model-id <your-model-id> ./churn_model_new
     ```
 
-
-2. **Deploy the Model on the Qwak Platform with a Real-Time Endpoint**:
+2. **Deploy the Model on JFrog ML with a Real-Time Endpoint**:
 
     To deploy your model via the CLI, use the following command:
 
@@ -91,7 +86,6 @@ The primary functionality is to predict the probability of customer churn. The c
 
 <br>
 
-
 ## Project Structure
 
 ```bash
@@ -107,12 +101,5 @@ The primary functionality is to predict the probability of customer churn. The c
 └── README.md              # Documentation
 ```
 
-
 <br>
 <br>
-
-## Try Qwak's MLOps Platform for Free
-
-Are you looking to deploy your machine learning models in a production-ready environment within minutes? [Qwak](https://www.qwak.com/) offers a seamless platform to build, train, and deploy your models with ease.
-
-Whether you're a data scientist, ML engineer, or developer, Qwak provides the tools and support to take your models from development to deployment effortlessly. Explore the platform and start deploying your models today. [Try Qwak for free!](https://www.qwak.com/)

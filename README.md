@@ -31,7 +31,8 @@ To get started with these examples:
 To use the JFrog ML Platform for MLOps, you will need:
 
 1. A JFrog Platform account with access to the JFrog ML Platform.
-2. A termial or command line interface with Conda and Python installed.
+2. A termial or command line interface with [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) and [Python](https://www.python.org/downloads/) installed. JFrog ML supports < 3.10 versions of Python.
+3. A [Poetry](https://python-poetry.org/docs/) installation for managing Python dependencies.
 
 ## JFrog Model Examples
 | Example | Category | Model | Info |

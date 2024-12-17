@@ -2,14 +2,14 @@
 
 ## Overview
 
-This project demonstrates how to label sentiment in a text prompt using a pre-trained BERT model with [Qwak's Machine Learning Platform](https://www.qwak.com/). 
+This project demonstrates how to label sentiment in a text prompt using a pre-trained BERT model with [JFrog ML](https://docs.qwak.com/docs/introduction). 
 
 It showcases how to:
 - Define the QwakModel class
 - Initialize the pre-trained BERT model
-- Predict phrase sentiment using Qwak's API
+- Predict phrase sentiment using JFrog ML's API
 
-The code is designed to work seamlessly with Qwak's platform and serves as a practical example.
+The code is designed to work seamlessly with JFrog ML and serves as a practical example.
 <br>
 
 ## How to Test Locally
@@ -24,7 +24,7 @@ The code is designed to work seamlessly with Qwak's platform and serves as a pra
     conda activate bert_sentiment_analysis
     ```
 
-3. **Install and Configure the Qwak SDK**: Use your account [Qwak API Key](https://docs.qwak.com/docs/getting-started#configuring-qwak-sdk) to set up your SDK locally.
+3. **Install and Configure the JFrog ML SDK**: Use your account [JFrog ML API Key](https://docs.qwak.com/docs/getting-started#configuring-qwak-sdk) to set up your SDK locally.
 
     ```bash
     pip install qwak-sdk
@@ -41,9 +41,9 @@ The code is designed to work seamlessly with Qwak's platform and serves as a pra
 
 <br>
 
-## How to Run Remotely on Qwak
+## How to Run Remotely on JFrog ML
 
-1. **Build on the Qwak Platform**:
+1. **Build on JFrog ML**:
 
     Create a new model on Qwak using the command:
 
@@ -59,7 +59,7 @@ The code is designed to work seamlessly with Qwak's platform and serves as a pra
     ```
 
 
-2. **Deploy the Model on the Qwak Platform with a Real-Time Endpoint**:
+2. **Deploy the Model on JFrog ML with a Real-Time Endpoint**:
 
     To deploy your model via the CLI, use the following command:
 
@@ -75,7 +75,7 @@ The code is designed to work seamlessly with Qwak's platform and serves as a pra
     pip install qwak-inference
     ```
 
-    Call the Real-Time endpoint using your Model ID from the Qwak platform:
+    Call the Real-Time endpoint using your Model ID from JFrog ML:
 
     ```bash
     python test_live_mode.py <your-qwak-model-id>
@@ -101,9 +101,3 @@ The code is designed to work seamlessly with Qwak's platform and serves as a pra
 
 <br>
 <br>
-
-## Try Qwak's MLOps Platform for Free
-
-Are you looking to deploy your machine learning models in a production-ready environment within minutes? [Qwak](https://www.qwak.com/) offers a seamless platform to build, train, and deploy your models with ease.
-
-Whether you're a data scientist, ML engineer, or developer, Qwak provides the tools and support to take your models from development to deployment effortlessly. Explore the platform and start deploying your models today. [Try Qwak for free!](https://www.qwak.com/)
