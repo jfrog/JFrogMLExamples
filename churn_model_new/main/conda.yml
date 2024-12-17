@@ -8,3 +8,4 @@ dependencies:
   - pandas
   - scikit-learn
   - xgboost
+  - scipy=1.10.1
