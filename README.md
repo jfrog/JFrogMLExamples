@@ -8,7 +8,8 @@ Example projects that demonstrate how to build, train, and deploy ML features an
 2. [Documentation](#documentation)
 3. [Getting Started](#getting-started)
 4. [Pre-requisites](#pre-requisites)
-5. [JFrog Model Examples](#jfrog-model-examples)
+5. [Developer Environment Example](#development-environment-example)
+6. [JFrog Model Examples](#jfrog-model-examples)
 
 ## Overview
 
@@ -33,6 +34,10 @@ To use the JFrog ML Platform for MLOps, you will need:
 1. A JFrog Platform account with access to the JFrog ML Platform.
 2. A termial or command line interface with [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) and [Python](https://www.python.org/downloads/) installed. JFrog ML supports < 3.10 versions of Python.
 3. A [Poetry](https://python-poetry.org/docs/) installation for managing Python dependencies.
+
+### Development Environment Example 
+We have provided a sample setup for developers to use JFrog ML more effectively. 
+[Developer Environment Example](./environment_example/README.md)
 
 ## JFrog Model Examples
 | Example | Category | Model | Info |
