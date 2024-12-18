@@ -40,4 +40,6 @@ To use the JFrog ML Platform for MLOps, you will need:
 | [Customer Churn Analysis](./churn_model_new/) | ![Predictive](https://img.shields.io/badge/-Predictive-blue) | ![XGBoost](https://img.shields.io/badge/-XGBoost-%23D3D3D3) | Predicts Telecom subscriber churn using XGBoost [Conda]. |
 | [Credit Risk Assesment](./catboost_poetry/) | ![Predictive](https://img.shields.io/badge/-Predictive-blue) | ![CatBoost](https://img.shields.io/badge/-CatBoost-%23D3D3D3) | Predicts loan default risk using CatBoost algorithm [Poetry] |
 | [Sentiment Analysis](./bert_conda/) | ![Predictive](https://img.shields.io/badge/-Predictive-blue) | ![BERT](https://img.shields.io/badge/-BERT-%23D3D3D3) | Performs binary sentiment analysis using a pre-trained BERT model. |
+| [Titanic Survival Prediction](./titanic_conda/) | ![Predictive](https://img.shields.io/badge/-Predictive-blue) | ![CatBoost](https://img.shields.io/badge/-CatBoost-%23D3D3D3) | Binary classification model for Titanic survival prediction.[Conda] |
+
 
