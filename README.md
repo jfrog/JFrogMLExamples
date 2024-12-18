@@ -35,7 +35,7 @@ To use the JFrog ML Platform for MLOps, you will need:
 2. A termial or command line interface with [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) and [Python](https://www.python.org/downloads/) installed. JFrog ML supports < 3.10 versions of Python.
 3. A [Poetry](https://python-poetry.org/docs/) installation for managing Python dependencies.
 
-### Development Environment Example 
+## Development Environment Example 
 We have provided a sample setup for developers to use JFrog ML more effectively. 
 [Developer Environment Example](./environment_example/README.md)
 
