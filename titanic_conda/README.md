@@ -16,12 +16,9 @@ This project employs the CatBoost algorithm for predicting the survival of Titan
 
 The primary functionality is to predict the probability of survival for Titanic passengers. The code is designed for seamless integration with JFrog ML's platform and serves as a practical example for survival prediction tasks.
 
-
-
 <br>
 
 ## How to Test Locally
-
 
 1. **Clone the Repository**: Clone this GitHub repository to your local machine.
 
@@ -59,13 +56,11 @@ The primary functionality is to predict the probability of survival for Titanic 
     qwak models create "Titanic Survival Model" --project "Sample Project"
     ```
 
-
     Initiate a model build with:
 
     ```bash
     qwak models build --model-id <your-model-id> ./titanic_conda
     ```
-
 
 2. **Deploy the Model on the JFrog ML Platform with a Real-Time Endpoint**:
 
@@ -91,7 +86,6 @@ The primary functionality is to predict the probability of survival for Titanic 
 
 <br>
 
-
 ## Project Structure
 
 ```bash
@@ -106,7 +100,5 @@ The primary functionality is to predict the probability of survival for Titanic 
 └── README.md              # Documentation
 ```
 
-
 <br>
 <br>
-

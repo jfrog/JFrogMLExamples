@@ -19,8 +19,8 @@ conda create --prefix ./env python=3.9
 6. Activate the Conda environment.
 
 ```
-    conda activate ./env
-    python -V
+conda activate ./env
+python -V
 ```
 
 7. Install the required dependencies using Conda
