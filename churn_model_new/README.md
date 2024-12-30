@@ -25,7 +25,8 @@ The primary functionality is to predict the probability of customer churn. The c
 2. **Install Dependencies**: Make sure you have the required dependencies installed, as specified in the `conda.yml` file.
 
     ```bash
-    conda env create -f main/conda.yaml
+    conda config --set ssl_verify false
+    conda env create -f main/conda.yml
     conda activate churn_model
     ```
 
@@ -34,6 +35,7 @@ The primary functionality is to predict the probability of customer churn. The c
     ```bash
     pip install qwak-sdk
     qwak configure
+    pip install "qwak-inference[batch,feedback]"
     ```
 
 5. **Run the Model Locally**: Execute the following command to test the model locally:

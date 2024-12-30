@@ -30,6 +30,9 @@ if __name__ == '__main__':
             'Agitation_Level' : 70
         }]
     
+    # Print that it is starting the process
+    print("\n\nPREDICTION STARTING:\n\n")
+
     # Create the DataFrame and convert it to JSON
     df = DataFrame(feature_vector).to_json()
     
