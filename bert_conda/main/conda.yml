@@ -8,6 +8,8 @@ dependencies:
   - urllib3==1.26
   - pip
   - pytorch
+  - pandas=2.2.2
+  - numpy<2
   - transformers
   - accelerate
   - einops

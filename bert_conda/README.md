@@ -20,7 +20,7 @@ The code is designed to work seamlessly with JFrog ML and serves as a practical 
 2. **Install Dependencies**: Make sure you have the required dependencies installed, as specified in the `conda.yml` file.
 
     ```bash
-    conda env create -f main/conda.yaml
+    conda env create -f ./main/conda.yml
     conda activate bert_sentiment_analysis
     ```
 
