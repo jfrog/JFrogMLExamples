@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 import qwak
 from catboost import CatBoostClassifier, Pool, cv
-from catboost.datasets import titanic
+# from catboost.datasets import titanic
 from qwak.model.base import QwakModel
 from qwak.model.schema import ExplicitFeature, InferenceOutput, ModelSchema
 from sklearn.model_selection import train_test_split
@@ -34,7 +34,11 @@ class TitanicSurvivalPrediction(QwakModel):
         })
 
     def build(self):
-        titanic_train, _ = titanic()
+        # titanic_train, _ = titanic()
+        titanic_train = pd.read_csv('./data/titanic/train.csv')
+        _ = pd.read_csv('./data/titanic/train.csv')
+        test = pd.read_csv('./data/titanic/test.csv')
+
 
         # for the train data ,the age ,fare and embarked has null value,so just make it -999 for it
         # and the catboost will distinguish it

@@ -25,7 +25,7 @@ The primary functionality is to predict the probability of survival for Titanic 
 2. **Install Dependencies**: Make sure you have the required dependencies installed, as specified in the `conda.yml` file.
 
     ```bash
-    conda env create -f main/conda.yaml
+    conda env create -f main/conda.yml
     conda activate titanic_conda
     ```
 
@@ -33,7 +33,7 @@ The primary functionality is to predict the probability of survival for Titanic 
 
     ```bash
     pip install qwak-sdk
-    qwak configure
+    qwak configure --url https://jfrogmldemo.jfrog.io/ --type jfrog  --token <JFrog Acess Token>
     ```
 
 5. **Run the Model Locally**: Execute the following command to test the model locally:
@@ -53,13 +53,13 @@ The primary functionality is to predict the probability of survival for Titanic 
     Create a new model on JFrog ML using the command:
 
     ```bash
-    qwak models create "Titanic Survival Model" --project "Sample Project"
+    qwak models create "Titanic Survival Model" --project "sample-project"
     ```
 
     Initiate a model build with:
 
     ```bash
-    qwak models build --model-id <your-model-id> ./titanic_conda
+    qwak models build --model-id <your-model-id> .
     ```
 
 2. **Deploy the Model on the JFrog ML Platform with a Real-Time Endpoint**:

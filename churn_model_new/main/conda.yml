@@ -6,7 +6,7 @@ dependencies:
   - python=3.9
   - pip
   - pandas=2.2.2
-  - numpy=2.0.0
+  - numpy<2
   - scikit-learn
   - pybind11>=2.12
   - xgboost

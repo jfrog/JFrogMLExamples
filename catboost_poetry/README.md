@@ -24,13 +24,20 @@ The primary functionality is to predict the probability of default for credit ap
 
 1. **Clone the Repository**: Clone this GitHub repository to your local machine.
 
-2. **Install Dependencies**: Make sure you have the required dependencies installed, as specified in the `pyproject.toml` file.
+2. **Install Dependencies**: Make sure you have the required dependencies installed, as specified in the `conda.yml` file.
+
+    ```bash
+    conda env create -f ./main/conda.yml
+    conda activate catboost_poetry
+    ```
+
+3. **Install Dependencies**: Make sure you have the required dependencies installed, as specified in the `pyproject.toml` file.
 
     ```bash
     poetry -C main install
     ```
 
-3. **Install and Configure the JFrog Ml SDK**: Use your account [JFrog ML API Key](https://docs.qwak.com/docs/getting-started#configuring-qwak-sdk) to set up your SDK locally.
+4. **Install and Configure the JFrog Ml SDK**: Use your account [JFrog ML API Key](https://docs.qwak.com/docs/getting-started#configuring-qwak-sdk) to set up your SDK locally.
 
     ```bash
     pip install qwak-sdk

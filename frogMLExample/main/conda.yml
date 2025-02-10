@@ -1,12 +1,11 @@
-name: titanic_conda
+name: frogml_model
 channels:
   - defaults
   - conda-forge
 dependencies:
   - python=3.9
   - pip
-  - pandas=2.2.2
-  - numpy<2
+  - pandas
   - scikit-learn
-  - scipy<1.13.0
-  - catboost
+  - xgboost
+  - frogml

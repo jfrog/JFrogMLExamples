@@ -1,12 +1,13 @@
-name: titanic_conda
+name: wine_conda
 channels:
   - defaults
   - conda-forge
 dependencies:
-  - python=3.9
+  - python=3.10
   - pip
-  - pandas=2.2.2
-  - numpy<2
+  - pandas>=2.2
+  - numpy<2.0
   - scikit-learn
-  - scipy<1.13.0
   - catboost
+  - tensorflow
+  - keras
