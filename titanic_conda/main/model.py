@@ -35,9 +35,9 @@ class TitanicSurvivalPrediction(QwakModel):
 
     def build(self):
         # titanic_train, _ = titanic()
-        titanic_train = pd.read_csv('./data/titanic/train.csv')
-        _ = pd.read_csv('./data/titanic/train.csv')
-        test = pd.read_csv('./data/titanic/test.csv')
+        file_absolute_path = os.path.dirname(os.path.abspath(__file__))
+        titanic_train = pd.read_csv(f"{file_absolute_path}/data/train.csv")
+        test = pd.read_csv(f"{file_absolute_path}/data/test.csv")
 
 
         # for the train data ,the age ,fare and embarked has null value,so just make it -999 for it
