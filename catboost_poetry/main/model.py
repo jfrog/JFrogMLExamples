@@ -36,7 +36,7 @@ class CatBoostCreditRiskModel(QwakModel):
 
         # Load the credit risk dataset
         file_absolute_path = os.path.dirname(os.path.abspath(__file__))
-        df_credit = pd.read_csv(f'{file_absolute_path}/data.csv', index_col=0)
+        df_credit = pd.read_csv(f'{file_absolute_path}/data/train.csv', index_col=0)
 
         # Create a categorical variable to handle the "Age Category"
         interval = (18, 25, 35, 60, 120)

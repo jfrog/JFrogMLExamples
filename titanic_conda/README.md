@@ -53,7 +53,7 @@ The primary functionality is to predict the probability of survival for Titanic 
     Create a new model on JFrog ML using the command:
 
     ```bash
-    qwak models create "Titanic Survival Model" --project "sample-project"
+    qwak models create "titanic-survival-model" --project "sample-project"
     ```
 
     Initiate a model build with:

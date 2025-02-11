@@ -47,7 +47,7 @@ The primary functionality is to predict the probability of default for credit ap
 5. **Run the Model Locally**: Execute the following command to test the model locally:
 
    ```bash
-   poetry run python test_model_locally.py
+   python test_model_locally.py
    ```
 
 <br>
@@ -61,7 +61,7 @@ The primary functionality is to predict the probability of default for credit ap
     Create a new model on Qwak using the command:
 
     ```bash
-    qwak models create "Credit Risk" --project "Sample Project"
+    qwak models create "credit-risk" --project "sample-project"
     ```
 
 
