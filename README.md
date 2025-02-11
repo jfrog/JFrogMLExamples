@@ -47,5 +47,6 @@ We have provided a sample setup for developers to use JFrog ML more effectively.
 | [Sentiment Analysis](./bert_conda/) | ![Predictive](https://img.shields.io/badge/-Predictive-blue) | ![BERT](https://img.shields.io/badge/-BERT-%23D3D3D3) | Performs binary sentiment analysis using a pre-trained BERT model. |
 | [Titanic Survival Prediction](./titanic_conda/) | ![Predictive](https://img.shields.io/badge/-Predictive-blue) | ![CatBoost](https://img.shields.io/badge/-CatBoost-%23D3D3D3) | Binary classification model for Titanic survival prediction.[Conda] |
 | [Sentiment Analysis](./sentiment_analysis/) | ![Predictive](https://img.shields.io/badge/-Predictive-blue) | ![Pandas](https://img.shields.io/badge/-Transformers-%23D3D3D3) | Sentiment Analysis Model with JFrog ML [Poetry] |
+| [FrogML Example](./frogMLExample/) | ![JFrogML](https://img.shields.io/badge/-Predictive-blue) | ![FrogML](https://img.shields.io/badge/-Transformers-%23D3D3D3) | Example of JFrog ML Repo and FrogML [JFrog] |
 
 
