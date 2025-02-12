@@ -28,6 +28,7 @@ Machine Learning Repositories with the FrogML SDK is a local management framewor
     ```bash
     pip install qwak-sdk
     qwak configure --url https://jfrogmldemo.jfrog.io/ --type jfrog  --token <JFrog Acess Token>
+    pip install frogml
     ```
 
 4. **Run the Model Locally**: Execute the following command to test the model locally:
