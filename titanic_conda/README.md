@@ -36,7 +36,7 @@ The primary functionality is to predict the probability of survival for Titanic 
     qwak configure --url https://jfrogmldemo.jfrog.io/ --type jfrog  --token <JFrog Acess Token>
     ```
 
-5. **Run the Model Locally**: Execute the following command to test the model locally:
+4. **Run the Model Locally**: Execute the following command to test the model locally:
 
    ```bash
    python test_model_locally.py

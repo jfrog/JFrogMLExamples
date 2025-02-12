@@ -12,6 +12,24 @@ Machine Learning Repositories with the FrogML SDK is a local management framewor
 
 - **Easy Version Control**: The Machine Learning Repositories SDK (FrogML) provides a user-friendly system to track changes to your projects. You can name, categorize (using namespaces), and keep track of different versions of your work.
 
-<br>
-
 ## How to Test Locally
+
+1. **Clone the Repository**: Clone this GitHub repository to your local machine.
+
+2. **Install Dependencies**: Make sure you have the required dependencies installed, as specified in the `conda.yml` file.
+
+    ```bash
+    conda env create -f main/conda.yml
+    conda activate RiskModelDemo
+    ```
+
+3. **Install and Configure the Qwak SDK**: Use your account [JFrog ML API Key](https://docs.qwak.com/docs/getting-started#configuring-qwak-sdk)to set up your SDK locally.
+
+    ```bash
+    pip install qwak-sdk
+    qwak configure --url https://jfrogmldemo.jfrog.io/ --type jfrog  --token <JFrog Acess Token>
+    ```
+
+4. **Run the Model Locally**: Execute the following command to test the model locally:
+
+   Open the FrogML Demo.ipynb file in Jupyter Notebook and run the cells.
