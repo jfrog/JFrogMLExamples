@@ -32,11 +32,13 @@ To get started with these examples:
 To use the JFrog ML Platform for MLOps, you will need:
 
 1. A JFrog Platform account with access to the JFrog ML Platform.
-2. A termial or command line interface with [Conda](https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html) and [Python](https://www.python.org/downloads/) installed. JFrog ML supports < 3.10 versions of Python.
-3. A [Poetry](https://python-poetry.org/docs/) installation for managing Python dependencies.
+2. A termial or command line interface with [Python](https://www.python.org/downloads/) installed. JFrog ML supports < 3.10 versions of Python.
+3. A [Poetry](https://python-poetry.org/docs/) installation for managing Python dependencies. 
+4. There is one example that uses [Conda](https://docs.conda.io/en/latest/) for package management. [Customer Churn Analysis](./churn_model_new/)
+5. A [JFrog CLI](https://jfrog.com/confluence/display/JFROG/JFrog+CLI) installation for interacting with the JFrog Platform. 
 
 ## Development Environment Example 
-We have provided a sample setup for developers to use JFrog ML more effectively. 
+We have provided a sample setup for developers to use JFrog ML more effectively.
 [Developer Environment Example](./environment_example/README.md)
 
 ## JFrog Model Examples
