@@ -13,5 +13,5 @@ datasets = "^2.20.0"
 pyarrow = "<17.0.0"
 urllib3 = "^2.2.2"
 qwak-sdk = "^0.5.85"
-mlflow = "^2.18.0"
+mlflow = "^2.20.3"
 
