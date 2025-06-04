@@ -1,10 +1,8 @@
-# FrogML SDK with JFrog ML Repository
+# LLM with JFrog ML
 
 ## Overview
 
-This example is using an LLM which can be pushed to JFrog ML and executed for prompt testing using either the Prompt in JFrog ML or using the [Streamlit RAG app](./streamlit_rag_demo/).
-
-It's implemented using the [JFrog ML Repository](https://jfrog.com/help/r/jfrog-artifactory-documentation/machine-learning-repositories) and the [FrogML SDK](https://jfrog.com/help/r/jfrog-artifactory-documentation/frogml-library).
+This example is using an LLM which can be pushed to JFrog ML and executed for prompt testing using either the Prompt in JFrog ML or using the [Streamlit RAG app](./streamlit_rag_demo/). For this example we will using the LLM from [Hugging Face "meta-llama/Llama-2-7b-chat-hf"](https://huggingface.co/meta-llama/Llama-2-7b-chat-hf).
 
 ### Features
 
