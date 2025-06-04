@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "sentiment-analysis"
+version = "0.1.0"
+description = ""
+authors = ["JFrog Team <info@jfrog.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.12"
+pip = "*"
+pandas = "*"
+scikit-learn = "*"
+catboost = "*"
+torch = "*"
+transformers = "*"
+accelerate = "*"
+einops = "*"
+urllib3 = ">=1.26,<2"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+

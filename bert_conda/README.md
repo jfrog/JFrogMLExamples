@@ -1,4 +1,4 @@
-# Perform Sentiment Analysis with BERT and Qwak
+# Perform Sentiment Analysis with BERT and JFrog ML
 
 ## Overview
 
@@ -17,11 +17,12 @@ The code is designed to work seamlessly with JFrog ML and serves as a practical 
 
 1. **Clone the Repository**: Clone this GitHub repository to your local machine.
 
-2. **Install Dependencies**: Make sure you have the required dependencies installed, as specified in the `conda.yml` file.
+2. **Install Dependencies**: Make sure you have the required dependencies installed, as specified in the `pyproject.toml` file.
 
     ```bash
-    conda env create -f ./main/conda.yml
-    conda activate bert_sentiment_analysis
+    cd main
+    poetry env activate
+    poetry -C main install
     ```
 
 3. **Install and Configure the JFrog ML SDK**: Use your account [JFrog ML API Key](https://docs.qwak.com/docs/getting-started#configuring-qwak-sdk) to set up your SDK locally.

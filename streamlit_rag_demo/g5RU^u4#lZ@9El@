@@ -1,0 +1,4 @@
+Notice that BatchInferenceClient and FeedbackClient are not available in the skinny package. In order to use them, please install them as extras: pip install "qwak-inference[batch,feedback]".
+Url is required.
+Login failed
+[91mFailed to authenticate with JFrog[0m
