@@ -4,3 +4,6 @@ env/
 **/._.DS_Store
 .vscode/
 .venv/
+**/__pycache__
+**/outputs
+**/results
