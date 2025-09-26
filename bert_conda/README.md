@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project demonstrates how to label sentiment in a text prompt using a pre-trained BERT model with [FrogML](`https://docs.qwak.com/docs/introduction`). 
+This project demonstrates how to label sentiment in a text prompt using a pre-trained BERT model with [FrogML](`https://jfrog.com/help/r/jfrog-ml-documentation/get-started-with-jfrog-ml`). 
 
 It showcases how to:
 - Define the FrogMLModel class
@@ -25,7 +25,7 @@ The code is designed to work seamlessly with FrogML and serves as a practical ex
     poetry -C main install
     ```
 
-3. **Install and Configure the FrogML SDK**: Use your account [FrogML API Key](`https://docs.qwak.com/docs/getting-started#configuring-qwak-sdk`) to set up your SDK locally.
+3. **Install and Configure the FrogML SDK**: Use your account [FrogML API Key](`https://jfrog.com/help/r/jfrog-ml-documentation/jfrog-ml-quickstart`) to set up your SDK locally.
 
     ```bash
     pip install frogml frogml-cli
