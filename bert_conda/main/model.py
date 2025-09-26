@@ -1,12 +1,12 @@
 import pandas as pd
-import qwak
-from qwak.model.base import QwakModel
-from qwak.model.schema import ExplicitFeature, ModelSchema
+import frogml
+from frogml import FrogMlModel
+from frogml.sdk.model.schema import ExplicitFeature, ModelSchema
 from transformers import BertTokenizer, BertForSequenceClassification
 import torch
 
-# Define the BERTSentimentAnalysis class, inheriting from QwakModel
-class BERTSentimentAnalysis(QwakModel):
+# Define the BERTSentimentAnalysis class, inheriting from FrogMlModel
+class BERTSentimentAnalysis(FrogMlModel):
 
     # Initialize the class with the BERT pretrained
     def __init__(self):
@@ -15,10 +15,10 @@ class BERTSentimentAnalysis(QwakModel):
 
     # Logging random metric, this model will use pre-trained Bert
     def build(self):
-        qwak.log_metric({"val_accuracy": 1})
+        frogml.log_metric({"val_accuracy": 1})
 
 
-    # Define the schema for the QwakModel's API
+    # Define the schema for the FrogMlModel's API
     def schema(self):
         model_schema = ModelSchema(
             inputs=[
@@ -34,7 +34,7 @@ class BERTSentimentAnalysis(QwakModel):
 
 
     # Predict method will analyze sentiment for given request input
-    @qwak.api()
+    @frogml.api()
     def predict(self, df):
         # Extract the 'prompt' values from the DataFrame
         input_text = list(df['prompt'].values)

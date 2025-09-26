@@ -16,6 +16,7 @@ transformers = "*"
 accelerate = "*"
 einops = "*"
 urllib3 = ">=1.26,<2"
+frogml = "*"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
