@@ -7,9 +7,17 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = ">=3.11,<3.12"
+pip = "*"
 pandas = "*"
 scikit-learn = "*"
 catboost = "*"
+torch = "*"
+transformers = "*"
+accelerate = "*"
+einops = "*"
+urllib3 = ">=1.26,<2"
+frogml = "*"
+
 
 [build-system]
 requires = ["poetry-core"]

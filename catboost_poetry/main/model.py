@@ -3,13 +3,13 @@ import os
 import catboost
 import numpy as np
 import pandas as pd
-import qwak
-from qwak.model.base import QwakModel
-from qwak.model.schema import ExplicitFeature, ModelSchema, InferenceOutput
+import frogml
+from frogml import FrogMlModel
+from frogml.sdk.model.schema import ExplicitFeature, ModelSchema, InferenceOutput
 from sklearn.model_selection import train_test_split
 
 
-class CatBoostCreditRiskModel(QwakModel):
+class CatBoostCreditRiskModel(FrogMlModel):
 
     def __init__(self):
         self.params = {
@@ -25,8 +25,8 @@ class CatBoostCreditRiskModel(QwakModel):
         # A CatBoost classifier with the specified parameters
         self.model = catboost.CatBoostClassifier(**self.params)
 
-        # Log model parameters to Qwak for tracking purposes
-        qwak.log_param(self.params)
+        # Log model parameters to FrogML for tracking purposes
+        frogml.log_param(self.params)
 
     def build(self):
         """
@@ -97,7 +97,7 @@ class CatBoostCreditRiskModel(QwakModel):
 
         max_accuracy = np.max(cv_data["test-Accuracy-mean"])
         print(f'Best cross validation accuracy:{max_accuracy}')
-        qwak.log_metric({"val_accuracy": max_accuracy})
+        frogml.log_metric({"val_accuracy": max_accuracy})
 
     def schema(self):
         """
@@ -122,7 +122,7 @@ class CatBoostCreditRiskModel(QwakModel):
                 InferenceOutput(name='Default_Probability', type=float)
             ])
 
-    @qwak.api()
+    @frogml.api()
     def predict(self, df: pd.DataFrame) -> pd.DataFrame:
         """
         The predict(df) method is the live inference method 

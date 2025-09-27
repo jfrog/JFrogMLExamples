@@ -1,6 +1,6 @@
 import argparse
 import pandas as pd
-from qwak_inference import RealTimeClient
+from frogml_inference import RealTimeClient
 
 
 def main(model_id):
@@ -36,8 +36,8 @@ USAGE:
 
 """
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser(description='Predict using the following Qwak model-id.')
-    parser.add_argument('model_id', type=str, help='The Qwak model ID to call for prediction.')
+    parser = argparse.ArgumentParser(description='Predict using the following FrogML model-id.')
+    parser.add_argument('model_id', type=str, help='The FrogML model ID to call for prediction.')
 
     args = parser.parse_args()
     main(args.model_id)
