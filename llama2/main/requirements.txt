@@ -1,8 +1,0 @@
---pre
---extra-index-url https://download.pytorch.org/whl/nightly/cu118
-torch
-pandas
-transformers
-huggingface_hub
-tokenizers>=0.13.3
-accelerate
