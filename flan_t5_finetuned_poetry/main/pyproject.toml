@@ -1,0 +1,13 @@
+[tool.poetry]
+name = "Finetuning FLAN-T5 Model"
+version = "0.1.0"
+description = "Finetuning a FLAN-T5 on custom data using JFrog ML"
+authors = ["jfrog <info@jfrog.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.12"
+pandas = "*"
+transformers = "*"
+accelerate = "*"
+xformers = "*"
+sentencepiece = "*"
