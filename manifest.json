@@ -139,29 +139,6 @@
         "LLM"
       ]
     },
-    "embeddings": {
-      "name": "Sentence Embeddings",
-      "description": "The all-MiniLM-L12-v2 model for semantic search",
-      "license": "Apache 2.0",
-      "image": "https://qwak-public.s3.amazonaws.com/qwak-frontend/onboarding/huggingface.png",
-      "featured": true,
-      "source": {
-        "folder": "sentence_transformers_poetry/main",
-        "files": [
-          "__init__.py",
-          "pyproject.toml",
-          "model.py"
-        ]
-      },
-      "deploy": {
-        "pods": "1",
-        "instance": "small"
-      },
-      "tags": [
-        "Embeddings",
-        "Semantic Search"
-      ]
-    },
     "llama2": {
       "name": "Llama-2",
       "description": "A leading open-source LLM",
