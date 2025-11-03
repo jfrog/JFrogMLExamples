@@ -1,5 +1,5 @@
 import pandas as pd
-from qwak_inference.realtime_client.client import InferenceOutputFormat
+from frogml_inference.realtime_client.client import InferenceOutputFormat
 
 
 def test_realtime_api(real_time_client):

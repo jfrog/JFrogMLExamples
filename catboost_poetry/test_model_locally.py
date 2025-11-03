@@ -1,5 +1,5 @@
 from pandas import DataFrame
-from qwak.model.tools import run_local
+from frogml.sdk.model.tools import run_local
 from main import *
 
 if __name__ == '__main__':
@@ -28,6 +28,6 @@ if __name__ == '__main__':
     
 
     # Run local inference using the model and print the prediction
-    # The run_local function is part of the qwak library and allows for local testing of the model
+    # The run_local function is part of the FrogML library and allows for local testing of the model
     prediction = run_local(m, df)
     print("\nPrediction: ", prediction)

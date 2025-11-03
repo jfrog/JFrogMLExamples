@@ -2,14 +2,22 @@
 name = "credit-risk"
 version = "0.1.0"
 description = ""
-authors = ["Qwak Team<info@qwak.com>"]
+authors = ["JFrog Team<info@jfrog.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = ">=3.8,<3.10"
-pandas = "^1.5.3"
-scikit-learn = "^1.2.2"
-catboost = "^1.1.1"
+python = ">=3.11,<3.12"
+pip = "*"
+pandas = "*"
+scikit-learn = "*"
+catboost = "*"
+torch = "*"
+transformers = "*"
+accelerate = "*"
+einops = "*"
+urllib3 = ">=1.26,<2"
+frogml = "*"
+
 
 [build-system]
 requires = ["poetry-core"]

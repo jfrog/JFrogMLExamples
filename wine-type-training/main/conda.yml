@@ -1,0 +1,13 @@
+name: wine_conda
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pandas>=2.2
+  - numpy<2.0
+  - scikit-learn
+  - catboost
+  - tensorflow
+  - keras

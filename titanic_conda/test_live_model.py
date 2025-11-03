@@ -1,6 +1,7 @@
 import argparse
 import pandas as pd
-from qwak_inference import RealTimeClient
+from frogml_inference import RealTimeClient
+
 
 
 def main(model_id):

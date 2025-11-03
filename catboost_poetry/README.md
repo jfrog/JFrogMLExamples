@@ -2,11 +2,11 @@
 
 ## Overview
 
-This project leverages the CatBoost machine learning algorithm for credit risk assessment. It's implemented using [JFrog ML](https://docs.qwak.com/docs/introduction) and the CatBoost library.
+This project leverages the CatBoost machine learning algorithm for credit risk assessment. It's implemented using [JFrog ML](https://jfrog.com/help/r/jfrog-ml-documentation/get-started-with-jfrog-ml) and the CatBoost library.
 
 ### Features
 
-- **Custom CatBoost Class Definition**: Customizes the base QwakModel to work with the CatBoost algorithm for credit risk prediction.
+- **Custom CatBoost Class Definition**: Customizes the base FrogMlModel to work with the CatBoost algorithm for credit risk prediction.
   
 - **Model Initialization**: Initializes the CatBoost model with user-defined or default hyperparameters. The model is trained on a credit risk dataset and fine-tuned for optimal performance.
 
@@ -27,20 +27,23 @@ The primary functionality is to predict the probability of default for credit ap
 2. **Install Dependencies**: Make sure you have the required dependencies installed, as specified in the `pyproject.toml` file.
 
     ```bash
-    poetry -C main install
+    cd main
+    poetry env activate
+    poetry -C . install --no-root
     ```
 
-3. **Install and Configure the JFrog Ml SDK**: Use your account [JFrog ML API Key](https://docs.qwak.com/docs/getting-started#configuring-qwak-sdk) to set up your SDK locally.
+3. **Install and Configure the JFrog Ml SDK**: Use your account [JFrog ML API Key](https://jfrog.com/help/r/jfrog-ml-documentation/jfrog-ml-quickstart) to set up your SDK locally.
 
     ```bash
-    pip install qwak-sdk
-    qwak configure
+    pip install frogml frogml-cli
+    frogml config add --url=<JFrog Platform URL> --access-token=<Token from Artifactory> --server-id=<name you want to give the instance> 
     ```
 
-5. **Run the Model Locally**: Execute the following command to test the model locally:
+4. **Run the Model Locally**: Execute the following command to test the model locally:
 
    ```bash
-   poetry run python test_model_locally.py
+   cd ../
+   python test_model_locally.py
    ```
 
 <br>
@@ -51,17 +54,17 @@ The primary functionality is to predict the probability of default for credit ap
 
 1. **Build on the JFrog ML**:
 
-    Create a new model on Qwak using the command:
+    Create a new model on FrogML using the command:
 
     ```bash
-    qwak models create "Credit Risk" --project "Sample Project"
+    frogml models create "Credit Risk" --project-key "<Project Name>"
     ```
 
 
     Initiate a model build with:
 
     ```bash
-    qwak models build --model-id <your-model-id> .
+    frogml models build . --model-id <your-model-id> --main-dir main --instance medium --gpu-compatible --name <name your build>
     ```
 
 
@@ -70,21 +73,21 @@ The primary functionality is to predict the probability of default for credit ap
     To deploy your model via the CLI, use the following command:
 
     ```bash
-    qwak models deploy realtime --model-id <your-model-id> --build-id <your-build-id>
+    frogml models deploy realtime --model-id <your-model-id> --build-id <your-build-id>
     ```
 
 3. **Test the Live Model with a Sample Request**:
 
-    Install the Qwak Inference SDK:
+    Install the FrogML Inference SDK:
 
     ```bash
-    pip install qwak-inference
+    pip install frogml-inference
     ```
 
     Call the Real-Time endpoint using your Model ID from the JFrog ML:
 
     ```bash
-    python test_live_mode.py <your-qwak-model-id>
+    python test_live_mode.py <your-frogml-model-id>
     ```
 
 <br>

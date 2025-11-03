@@ -1,15 +1,15 @@
-# Perform Sentiment Analysis with BERT and Qwak
+# Perform Sentiment Analysis with BERT and FrogML
 
 ## Overview
 
-This project demonstrates how to label sentiment in a text prompt using a pre-trained BERT model with [JFrog ML](https://docs.qwak.com/docs/introduction). 
+This project demonstrates how to label sentiment in a text prompt using a pre-trained BERT model with [FrogML](`https://jfrog.com/help/r/jfrog-ml-documentation/get-started-with-jfrog-ml`). 
 
 It showcases how to:
-- Define the QwakModel class
+- Define the FrogMLModel class
 - Initialize the pre-trained BERT model
-- Predict phrase sentiment using JFrog ML's API
+- Predict phrase sentiment using FrogML's API
 
-The code is designed to work seamlessly with JFrog ML and serves as a practical example.
+The code is designed to work seamlessly with FrogML and serves as a practical example.
 <br>
 
 ## How to Test Locally
@@ -17,18 +17,19 @@ The code is designed to work seamlessly with JFrog ML and serves as a practical 
 
 1. **Clone the Repository**: Clone this GitHub repository to your local machine.
 
-2. **Install Dependencies**: Make sure you have the required dependencies installed, as specified in the `conda.yml` file.
+2. **Install Dependencies**: Make sure you have the required dependencies installed, as specified in the `pyproject.toml` file.
 
     ```bash
-    conda env create -f main/conda.yaml
-    conda activate bert_sentiment_analysis
+    cd main
+    poetry env activate
+    poetry -C main install
     ```
 
-3. **Install and Configure the JFrog ML SDK**: Use your account [JFrog ML API Key](https://docs.qwak.com/docs/getting-started#configuring-qwak-sdk) to set up your SDK locally.
+3. **Install and Configure the FrogML SDK**: Use your account [FrogML API Key](`https://jfrog.com/help/r/jfrog-ml-documentation/jfrog-ml-quickstart`) to set up your SDK locally.
 
     ```bash
-    pip install qwak-sdk
-    qwak configure
+    pip install frogml frogml-cli
+    frogml config add 
     ```
 
 5. **Run the Model Locally**: Execute the following command to test the model locally:
@@ -45,40 +46,40 @@ The code is designed to work seamlessly with JFrog ML and serves as a practical 
 
 1. **Build on JFrog ML**:
 
-    Create a new model on Qwak using the command:
+    Create a new model on FrogML using the command:
 
     ```bash
-    qwak models create "BERT Sentiment Analysis" --project "Sample Project"
+    frogml models create "BERT Sentiment Analysis" --project-key "<Project Name>"
     ```
 
 
     Initiate a model build with:
 
     ```bash
-    qwak models build --model-id <your-model-id> ./bert_conda
+    frogml models build .  --model-id bert_sentiment_analysis --main-dir main --memory "60GB"  --gpu-compatible --name bert-test-01
     ```
 
 
-2. **Deploy the Model on JFrog ML with a Real-Time Endpoint**:
+2. **Deploy the Model on FrogML with a Real-Time Endpoint**:
 
     To deploy your model via the CLI, use the following command:
 
     ```bash
-    qwak models deploy realtime --model-id <your-model-id> --build-id <your-build-id>
+    frogml models deploy realtime --model-id <your-model-id> --build-id <your-build-id>
     ```
 
 3. **Test the Live Model with a Sample Request**:
 
-    Install the Qwak Inference SDK:
+    Install the FrogML Inference SDK:
 
     ```bash
-    pip install qwak-inference
+    pip install frogml-inference
     ```
 
-    Call the Real-Time endpoint using your Model ID from JFrog ML:
+    Call the Real-Time endpoint using your Model ID from FrogML:
 
     ```bash
-    python test_live_mode.py <your-qwak-model-id>
+    python test_live_mode.py <your-frogml-model-id>
     ```
 
 <br>

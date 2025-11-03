@@ -2,15 +2,15 @@ import os
 
 import numpy as np
 import pandas as pd
-import qwak
+import frogml
 from catboost import CatBoostClassifier, Pool, cv
 from catboost.datasets import titanic
-from qwak.model.base import QwakModel
-from qwak.model.schema import ExplicitFeature, InferenceOutput, ModelSchema
+from frogml.sdk.model.base import BaseModel
+from frogml.sdk.model.schema import ExplicitFeature, InferenceOutput, ModelSchema
 from sklearn.model_selection import train_test_split
 
 
-class TitanicSurvivalPrediction(QwakModel):
+class TitanicSurvivalPrediction(BaseModel):
     def __init__(self):
         loss_function = os.getenv("loss_fn", "Logloss")
         iterations = int(os.getenv("iterations", 1000))
@@ -26,7 +26,7 @@ class TitanicSurvivalPrediction(QwakModel):
             learning_rate=learning_rate,
         )
 
-        qwak.log_param({
+        frogml.log_param({
             "loss_function": loss_function,
             "learning_rate": learning_rate,
             "iterations": iterations,
@@ -68,7 +68,7 @@ class TitanicSurvivalPrediction(QwakModel):
                 np.max(cv_data["test-Accuracy-mean"])
             )
         )
-        qwak.log_metric({"val_accuracy": np.max(cv_data["test-Accuracy-mean"])})
+        frogml.log_metric({"val_accuracy": np.max(cv_data["test-Accuracy-mean"])})
 
     def schema(self):
         return ModelSchema(
@@ -88,7 +88,7 @@ class TitanicSurvivalPrediction(QwakModel):
             outputs=[InferenceOutput(name="Survived_Probability", type=float)],
         )
 
-    @qwak.api()
+    @frogml.api()
     def predict(self, df: pd.DataFrame) -> pd.DataFrame:
         df = df.drop(["PassengerId"], axis=1)
 

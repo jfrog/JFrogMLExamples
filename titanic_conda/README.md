@@ -2,11 +2,11 @@
 
 ## Overview
 
-This project employs the CatBoost algorithm for predicting the survival of Titanic passengers. It's implemented using the [JFrog ML](https://docs.qwak.com/docs/introduction) and the CatBoost library.
+This project employs the CatBoost algorithm for predicting the survival of Titanic passengers. It's implemented using the [JFrog ML's Machine Learning Platform](https://jfrog.com/jfrog-ml/) and the CatBoost library.
 
 ### Features
 
-- **Custom TitanicSurvivalPrediction Class Definition**: Customizes the base QwakModel to work with the CatBoost algorithm for survival prediction.
+- **Custom TitanicSurvivalPrediction Class Definition**: Customizes the base FrogMLModel to work with the CatBoost algorithm for survival prediction.
 
 - **Model Initialization**: Initializes the CatBoost model with user-defined or default hyperparameters. The model is trained on the Titanic dataset and fine-tuned for optimal performance.
 
@@ -16,9 +16,12 @@ This project employs the CatBoost algorithm for predicting the survival of Titan
 
 The primary functionality is to predict the probability of survival for Titanic passengers. The code is designed for seamless integration with JFrog ML's platform and serves as a practical example for survival prediction tasks.
 
+
+
 <br>
 
 ## How to Test Locally
+
 
 1. **Clone the Repository**: Clone this GitHub repository to your local machine.
 
@@ -29,11 +32,11 @@ The primary functionality is to predict the probability of survival for Titanic 
     conda activate titanic_conda
     ```
 
-3. **Install and Configure the Qwak SDK**: Use your account [JFrog ML API Key](https://docs.qwak.com/docs/getting-started#configuring-qwak-sdk)to set up your SDK locally.
+3. **Install and Configure the FrogML SDK**: Follow the instructions [here](https://jfrog.com/help/r/jfrog-ml-documentation/jfrog-ml-quickstart) to set up your SDK locally.
 
     ```bash
-    pip install qwak-sdk
-    qwak configure
+    pip install frogml-cli
+    frogml configure
     ```
 
 5. **Run the Model Locally**: Execute the following command to test the model locally:
@@ -53,21 +56,23 @@ The primary functionality is to predict the probability of survival for Titanic 
     Create a new model on JFrog ML using the command:
 
     ```bash
-    qwak models create "Titanic Survival Model" --project "Sample Project"
+    frogml models create "Titanic Survival Model" --project "Sample Project"
     ```
+
 
     Initiate a model build with:
 
     ```bash
-    qwak models build --model-id <your-model-id> ./titanic_conda
+    frogml models build --model-id <your-model-id> ./titanic_conda
     ```
+
 
 2. **Deploy the Model on the JFrog ML Platform with a Real-Time Endpoint**:
 
     To deploy your model via the CLI, use the following command:
 
     ```bash
-    qwak models deploy realtime --model-id <your-model-id> --build-id <your-build-id>
+    frogml models deploy realtime --model-id <your-model-id> --build-id <your-build-id>
     ```
 
 3. **Test the Live Model with a Sample Request**:
@@ -75,16 +80,17 @@ The primary functionality is to predict the probability of survival for Titanic 
     Install the JFrog ML Inference SDK:
 
     ```bash
-    pip install qwak-inference
+    pip install frogml-inference
     ```
 
     Call the Real-Time endpoint using your Model ID from the JFrog ML platform:
 
     ```bash
-    python test_live_mode.py <your-qwak-model-id>
+    python test_live_mode.py <your-jfrogml-model-id>
     ```
 
 <br>
+
 
 ## Project Structure
 
@@ -100,5 +106,12 @@ The primary functionality is to predict the probability of survival for Titanic 
 └── README.md              # Documentation
 ```
 
+
 <br>
 <br>
+
+## Try JFrog ML's MLOps Platform for Free
+
+Are you looking to deploy your machine learning models in a production-ready environment within minutes? [JFrog ML](https://jfrog.com/jfrog-ml/) offers a seamless platform to build, train, and deploy your models with ease.
+
+Whether you're a data scientist, ML engineer, or developer, JFrog ML provides the tools and support to take your models from development to deployment effortlessly. Explore the platform and start deploying your models today. [Try JFrog ML for free!](https://jfrog.com/jfrog-ml/)

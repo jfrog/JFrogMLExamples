@@ -1,0 +1,13 @@
+[tool.poetry]
+name = "FLAN-T5 Model"
+version = "0.1.0"
+description = "Vanilla FLAN-T5 model on Qwak"
+authors = ["Qwak <info@qwak.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.12"
+pandas = "*"
+transformers = "*"
+accelerate = "*"
+xformers = "*"
+sentencepiece = "*"

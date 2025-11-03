@@ -3,13 +3,13 @@ import os
 import catboost
 import numpy as np
 import pandas as pd
-import qwak
-from qwak.model.base import QwakModel
-from qwak.model.schema import ExplicitFeature, ModelSchema, InferenceOutput
+import frogml
+from frogml import FrogMlModel
+from frogml.sdk.model.schema import ExplicitFeature, ModelSchema, InferenceOutput
 from sklearn.model_selection import train_test_split
 
 
-class CatBoostCreditRiskModel(QwakModel):
+class CatBoostCreditRiskModel(FrogMlModel):
 
     def __init__(self):
         self.params = {
@@ -25,8 +25,8 @@ class CatBoostCreditRiskModel(QwakModel):
         # A CatBoost classifier with the specified parameters
         self.model = catboost.CatBoostClassifier(**self.params)
 
-        # Log model parameters to Qwak for tracking purposes
-        qwak.log_param(self.params)
+        # Log model parameters to FrogML for tracking purposes
+        frogml.log_param(self.params)
 
     def build(self):
         """
@@ -36,7 +36,15 @@ class CatBoostCreditRiskModel(QwakModel):
 
         # Load the credit risk dataset
         file_absolute_path = os.path.dirname(os.path.abspath(__file__))
-        df_credit = pd.read_csv(f'{file_absolute_path}/data.csv', index_col=0)
+        df_credit = pd.read_csv(f'{file_absolute_path}/data/train.csv', index_col=0)
+
+        # Convert string 'NA' values to actual NaN first
+        df_credit['Saving accounts'] = df_credit['Saving accounts'].replace('NA', np.nan)
+        df_credit['Checking account'] = df_credit['Checking account'].replace('NA', np.nan)
+        
+        # Fill in the missing values in the fields below
+        df_credit['Saving accounts'] = df_credit['Saving accounts'].fillna('no_inf')
+        df_credit['Checking account'] = df_credit['Checking account'].fillna('no_inf')
 
         # Create a categorical variable to handle the "Age Category"
         interval = (18, 25, 35, 60, 120)
@@ -46,10 +54,9 @@ class CatBoostCreditRiskModel(QwakModel):
             interval,
             labels=categories
         ).astype(object)
-
-        # Fill in the missing values in the fields below
-        df_credit['Saving accounts'] = df_credit['Saving accounts'].fillna('no_inf')
-        df_credit['Checking account'] = df_credit['Checking account'].fillna('no_inf')
+        
+        # Handle any NaN values in Age_cat that might have been created
+        df_credit["Age_cat"] = df_credit["Age_cat"].fillna('Unknown')
 
         df_credit = df_credit.merge(
             pd.get_dummies(df_credit.Risk, prefix='Risk'),
@@ -97,7 +104,7 @@ class CatBoostCreditRiskModel(QwakModel):
 
         max_accuracy = np.max(cv_data["test-Accuracy-mean"])
         print(f'Best cross validation accuracy:{max_accuracy}')
-        qwak.log_metric({"val_accuracy": max_accuracy})
+        frogml.log_metric({"val_accuracy": max_accuracy})
 
     def schema(self):
         """
@@ -122,12 +129,37 @@ class CatBoostCreditRiskModel(QwakModel):
                 InferenceOutput(name='Default_Probability', type=float)
             ])
 
-    @qwak.api()
+    @frogml.api()
     def predict(self, df: pd.DataFrame) -> pd.DataFrame:
         """
         The predict(df) method is the live inference method 
         """
         df = df.drop(['UserId'], axis=1)
+        
+        # Apply the same preprocessing as in build()
+        # Convert string 'NA' values to actual NaN first
+        df['Saving accounts'] = df['Saving accounts'].replace('NA', np.nan)
+        df['Checking account'] = df['Checking account'].replace('NA', np.nan)
+        
+        # Fill in the missing values
+        df['Saving accounts'] = df['Saving accounts'].fillna('no_inf')
+        df['Checking account'] = df['Checking account'].fillna('no_inf')
+        
+        # Create Age_cat feature
+        interval = (18, 25, 35, 60, 120)
+        categories = ['Student', 'Young', 'Adult', 'Senior']
+        df["Age_cat"] = pd.cut(
+            df.Age,
+            interval,
+            labels=categories
+        ).astype(object)
+        
+        # Handle any NaN values in Age_cat
+        df["Age_cat"] = df["Age_cat"].fillna('Unknown')
+        
+        # Apply log transformation to Credit amount
+        df['Credit amount'] = np.log(df['Credit amount'])
+        
         return pd.DataFrame(
             self.model.predict_proba(df[self.model.feature_names_])[:, 1],
             columns=['Default_Probability']
