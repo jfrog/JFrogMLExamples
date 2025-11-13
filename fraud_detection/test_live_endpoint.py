@@ -1,7 +1,7 @@
 import pandas as pd
 from frogml_inference import RealTimeClient
 
-JFROGML_MODEL_ID = 'fraud_detection_model'
+JFROGML_MODEL_ID = 'fraud_detection'
 
 if __name__ == '__main__':
 
