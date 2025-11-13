@@ -5,7 +5,8 @@ from peft import LoraConfig
 
 # --- Model Configuration ---
 # Updated to use the Llama 2 7B Chat model
-MODEL_ID = "meta-llama/Llama-2-7b-chat-hf"
+#MODEL_ID = "meta-llama/Llama-2-7b-chat-hf"
+MODEL_ID = "Qwen/Qwen1.5-0.5B-Chat"
 #MODEL_ID = "google/gemma-2b-it"
 
 # --- Training Hyperparameters ---
@@ -37,6 +38,19 @@ BNB_CONFIG = BitsAndBytesConfig(
     bnb_4bit_compute_dtype=torch.bfloat16
 )
 
+# Qwen1.5 (on CPU)
+# --- Prompt Engineering ---
+def get_prompt(text: str) -> str:
+    """
+    Creates a formatted prompt for the Qwen1.5 Chat model.
+    """
+    system_prompt = "You are a helpful assistant that analyzes the sentiment of movie reviews."
+    instruction = f"Analyze the sentiment of this movie review and classify it as 'positive' or 'negative'.\n\nReview: \"{text}\""
+    
+    # Qwen1.5 uses ChatML format
+    return f"<|im_start|>system\n{system_prompt}<|im_end|>\n<|im_start|>user\n{instruction}<|im_end|>\n<|im_start|>assistant\n"
+
+"""
 # LLama2 (on GPU)
 # --- Prompt Engineering ---
 # --- FIX: Updated prompt format for Llama 2 Chat models ---
@@ -49,6 +63,8 @@ def get_prompt(text: str) -> str:
     
     # Llama 2 uses a specific instruction format with [INST] and <<SYS>> tags.
     return f"<s>[INST] <<SYS>>\n{system_prompt}\n<</SYS>>\n\n{instruction} [/INST]"
+"""
+
 
 """
 # Gemma (locally)

@@ -2,7 +2,7 @@ import pandas as pd
 from frogml_inference import RealTimeClient
 
 # JFrogML model identifier for the deployed DevOps Helper model
-JFROGML_MODEL_ID = 'devops_helper_model'
+JFROGML_MODEL_ID = 'devops_helper'
 
 if __name__ == '__main__':
     # Define test DevOps question

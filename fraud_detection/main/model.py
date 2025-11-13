@@ -2,6 +2,7 @@ import pandas as pd
 import frogml
 from frogml import FrogMlModel
 from frogml.sdk.model.schema import ExplicitFeature, ModelSchema, InferenceOutput
+from frogml.sdk.model.adapters import DataFrameInputAdapter, DataFrameOutputAdapter
 from sklearn.model_selection import RandomizedSearchCV, StratifiedKFold
 from catboost import CatBoostClassifier
 from main.data_processor import DataPreprocessor
@@ -81,7 +82,8 @@ class FraudDetectionModel(FrogMlModel):
 
 
     # ----- INFERENCE LOGIC ------
-    @frogml.api()
+    @frogml.api(input_adapter=DataFrameInputAdapter(),
+                output_adapter=DataFrameOutputAdapter())
     def predict(self, df):
 
         prediction_data = self.data_preprocessor.preprocess_inference_data(df)
