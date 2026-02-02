@@ -4,8 +4,11 @@ Run at Docker build time so the model is baked into the image.
 Default: google/flan-t5-small (text-to-text).
 """
 import argparse
+import importlib.util
 import os
-from transformers import AutoModelForSeq2SeqLM, AutoTokenizer
+import sys
+from pathlib import Path
+from transformers import AutoTokenizer
 
 
 def main():
@@ -17,17 +20,30 @@ def main():
     )
     parser.add_argument(
         "--output-dir",
-        default="/app/model",
+        default="./model",
         help="Directory to save the model",
     )
     args = parser.parse_args()
 
-    os.makedirs(args.output_dir, exist_ok=True)
-    print(f"Downloading {args.model_id} to {args.output_dir}...")
+    if importlib.util.find_spec("torch") is None:
+        print(
+            "Error: PyTorch is required to download the model weights.\n"
+            "Install it with:\n"
+            "  pip install torch\n"
+            "Then re-run this script.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+
+    from transformers import AutoModelForSeq2SeqLM
+
+    output_dir = Path(args.output_dir).expanduser().resolve()
+    os.makedirs(output_dir, exist_ok=True)
+    print(f"Downloading {args.model_id} to {output_dir}...")
     tokenizer = AutoTokenizer.from_pretrained(args.model_id)
     model = AutoModelForSeq2SeqLM.from_pretrained(args.model_id)
-    tokenizer.save_pretrained(args.output_dir)
-    model.save_pretrained(args.output_dir)
+    tokenizer.save_pretrained(str(output_dir))
+    model.save_pretrained(str(output_dir))
     print("Done.")
 
 

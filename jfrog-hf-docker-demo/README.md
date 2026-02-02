@@ -45,32 +45,32 @@ docker run -p 8000:8000 jfrog-hf-demo:latest
 Then:
 
 - Open http://localhost:8000/docs
-- Try `POST /predict` with body: `{"text": "Summarize: Machine learning is a subset of artificial intelligence."}` or `{"text": "Question: What is the capital of France? Answer:"}`
+- Try `POST /predict` with body:
+  - `{"text": "Summarize: Machine learning is a subset of artificial intelligence."}`
+  - `{"text": "Question: What is the capital of France? Answer:"}`
 
+Example:
+
+```bash
+curl -s http://localhost:8000/predict \
+  -H "Content-Type: application/json" \
+  -d '{"text":"Summarize: Machine learning is a subset of artificial intelligence."}'
+```
+  
 ## Push to JFrog Artifactory
 
-1. Set your Artifactory Docker repo and (optionally) credentials:
+1. Log in to Artifactory:
 
    ```bash
-   export ARTIFACTORY_URL="your-instance.jfrog.io"
-   export ARTIFACTORY_REPO="docker-local"   # your Docker repo key
-   export ARTIFACTORY_USER="your-username"
-   export ARTIFACTORY_PASSWORD="your-password-or-api-key"
+   docker login solenglatest.jfrog.io
    ```
 
-2. Run the script:
+2. Tag and push the image:
 
    ```bash
-   chmod +x push_to_jfrog.sh
-   ./push_to_jfrog.sh
+   docker tag jfrog-hf-demo:latest solenglatest.jfrog.io/shadow-guyes/jfrog-hf-demo:latest
+   docker push solenglatest.jfrog.io/shadow-guyes/jfrog-hf-demo:latest
    ```
-
-   This builds the image, tags it as `{ARTIFACTORY_URL}/{ARTIFACTORY_REPO}/jfrog-hf-demo:latest`, logs in to Artifactory (if user/password are set), and pushes.
-
-3. Optional env vars:
-   - `DOCKER_IMAGE_NAME` – image name (default: `jfrog-hf-demo`)
-   - `IMAGE_TAG` – tag (default: `latest`)
-   - `HF_MODEL_ID` – Hugging Face model ID (default: `google/flan-t5-small`)
 
 ## Pull and run from Artifactory
 
