@@ -1,0 +1,8 @@
+transformers==4.57.6
+bitsandbytes
+datasets
+frogml
+huggingface_hub
+peft
+trl
+bitsandbytes

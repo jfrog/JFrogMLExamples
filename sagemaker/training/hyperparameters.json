@@ -1,0 +1,8 @@
+{
+    "epochs": 1,
+    "learning_rate": 2e-4,
+    "max_steps": 1,
+    "gradient_accumulation_steps": 8,
+    "train_batch_size": 1,
+    "dataset_sample_percentage": 0.1
+}
