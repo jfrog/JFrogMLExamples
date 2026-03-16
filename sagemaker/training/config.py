@@ -1,8 +1,9 @@
-# config.py
 import torch
 from peft import LoraConfig
 from transformers import BitsAndBytesConfig
 
+# Duplicated in deployment/config.py because SageMaker packages
+# training/ and deployment/ as independent source bundles.
 JF_REPO = "llm"
 JF_MODEL_NAME = "devops_helper"
 

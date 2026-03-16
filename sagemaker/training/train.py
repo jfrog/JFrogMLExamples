@@ -10,13 +10,12 @@ from transformers import (
     TrainingArguments,
     AutoTokenizer,
     AutoModelForCausalLM,
-    BitsAndBytesConfig,
 )
 
 import frogml
 import argparse
 
-import config   # <-- import config.py
+import config
 import dataset_utils
 
 from huggingface_hub import snapshot_download
@@ -39,6 +38,8 @@ def parse_args():
     return parser.parse_args()
 
 
+# Secret helpers are intentionally duplicated in deployment/inference.py
+# because SageMaker ships training/ and deployment/ as independent bundles.
 def _get_secret_id(name: str) -> str:
     value = os.environ.get(name)
     if not value:
@@ -47,7 +48,8 @@ def _get_secret_id(name: str) -> str:
 
 
 def _get_secret_value(secret_id: str) -> str:
-    client = boto3.client("secretsmanager", region_name="us-east-1")
+    region = os.environ.get("AWS_REGION", "us-east-1")
+    client = boto3.client("secretsmanager", region_name=region)
     response = client.get_secret_value(SecretId=secret_id)
     secret = response.get("SecretString")
     if secret is None:
@@ -79,8 +81,7 @@ def main():
     use_bf16 = False
     
     if use_cuda:
-        # Use 4-bit quantization by default on GPU to reduce memory usage.
-        quantization_config = BitsAndBytesConfig(load_in_4bit=True)
+        quantization_config = config.BNB_CONFIG
         print("✅ CUDA detected. Configuring mixed precision.")
         if torch.cuda.is_bf16_supported():
             use_bf16 = True
@@ -135,7 +136,6 @@ def main():
         model=model,
         train_dataset=train_dataset,
         eval_dataset=eval_dataset,
-        #peft_config=LORA_CONFIG,
         formatting_func=format_instruction,
         args=training_args,
     )
@@ -159,7 +159,6 @@ def main():
         "max_seq_length": config.MAX_SEQ_LENGTH,
         "lora_r": config.LORA_CONFIG.r,
         "lora_alpha": config.LORA_CONFIG.lora_alpha,
-        #"lora_target_modules": str(config.LORA_CONFIG.target_modules),
     }
  
 

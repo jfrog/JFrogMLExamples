@@ -22,7 +22,8 @@ class DevopsAssistantInferenceSpec(InferenceSpec):
         return value
 
     def _get_secret_value(self, secret_id: str) -> str:
-        client = boto3.client("secretsmanager", region_name="us-east-1")
+        region = os.environ.get("AWS_REGION", "us-east-1")
+        client = boto3.client("secretsmanager", region_name=region)
         response = client.get_secret_value(SecretId=secret_id)
         secret = response.get("SecretString")
         if secret is None:
@@ -44,7 +45,7 @@ class DevopsAssistantInferenceSpec(InferenceSpec):
 
         if model is None or tokenizer is None:
             raise ValueError(
-                f"Failed to load {self.model_name} from {self.model_repository} "
+                f"Failed to load {config.JF_MODEL_NAME} from {config.JF_REPO} "
                 f"(version={self.model_version or 'latest'})"
             )
 
@@ -79,5 +80,3 @@ class DevopsAssistantInferenceSpec(InferenceSpec):
 
         outputs = generator(text, **gen_args)
         return outputs
-
-print("HuggingFace InferenceSpec defined successfully!")

@@ -28,7 +28,11 @@ def load_datasets(percentage: float):
         instruction = example.get("Instruction", "") or example.get("instruction", "")
         inp = example.get("Prompt", "") or example.get("prompt", "")
         response = example.get("Response", "") or example.get("response", "")
-        full_prompt = f"<s>[INST] {instruction}\n{inp} [/INST] {response} </s>"
-        return full_prompt
+        user_message = f"{instruction}\n{inp}".strip()
+        return (
+            f"<|im_start|>system\nYou are a helpful DevOps assistant.<|im_end|>\n"
+            f"<|im_start|>user\n{user_message}<|im_end|>\n"
+            f"<|im_start|>assistant\n{response}<|im_end|>"
+        )
 
     return train_dataset, eval_dataset, format_instruction

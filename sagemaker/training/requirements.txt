@@ -5,4 +5,3 @@ frogml
 huggingface_hub
 peft
 trl
-bitsandbytes
